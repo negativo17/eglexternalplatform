@@ -6,8 +6,10 @@ Release:        2%{?dist}
 Summary:        EGL External Platform Interface headers
 License:        MIT
 URL:            https://github.com/NVIDIA
+BuildArch:      noarch
 
 Source0:        %url/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
+Patch0:         %{name}-noarch.patch
 
 BuildRequires:  meson
 
@@ -34,12 +36,11 @@ developing applications that use %{name}.
 %doc README.md samples
 %license COPYING
 %{_includedir}/*
-%{_libdir}/pkgconfig/eglexternalplatform.pc
+%{_datadir}/pkgconfig/eglexternalplatform.pc
 
 %changelog
 * Wed Sep 04 2024 Simone Caronni <negativo17@gmail.com> - 1.2-2
-- No longer noarch as the path of the generated pkg-config file depends on the
-  architecture.
+- Adjust path of generated pkg-config file so it's still considered noarch.
 
 * Thu Aug 08 2024 Simone Caronni <negativo17@gmail.com> - 1.2-1
 - Update to 1.2.
