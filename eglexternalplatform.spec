@@ -2,11 +2,10 @@
 
 Name:           eglexternalplatform
 Version:        1.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        EGL External Platform Interface headers
 License:        MIT
 URL:            https://github.com/NVIDIA
-BuildArch:      noarch
 
 Source0:        %url/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 
@@ -38,6 +37,10 @@ developing applications that use %{name}.
 %{_libdir}/pkgconfig/eglexternalplatform.pc
 
 %changelog
+* Wed Sep 04 2024 Simone Caronni <negativo17@gmail.com> - 1.2-2
+- No longer noarch as the path of the generated pkg-config file depends on the
+  architecture.
+
 * Thu Aug 08 2024 Simone Caronni <negativo17@gmail.com> - 1.2-1
 - Update to 1.2.
 
